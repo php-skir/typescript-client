@@ -5,15 +5,20 @@ set -euo pipefail
 badge_path=$1
 repository=$GITHUB_REPOSITORY
 badge_endpoint="repos/$repository/contents/coverage.svg"
+workflow_sha=${GITHUB_SHA:?GITHUB_SHA must identify the tested main commit}
+latest_main_sha=$(gh api "repos/$repository/git/ref/heads/main" --jq '.object.sha')
+
+if [[ "$workflow_sha" != "$latest_main_sha" ]]; then
+    echo "Skipping coverage badge from stale main commit $workflow_sha."
+    exit 0
+fi
 
 if ! gh api "repos/$repository/git/ref/heads/badges" > /dev/null 2>&1; then
-    main_sha=$(gh api "repos/$repository/git/ref/heads/main" --jq '.object.sha')
-
     gh api \
         --method POST \
         "repos/$repository/git/refs" \
         -f ref='refs/heads/badges' \
-        -f sha="$main_sha" \
+        -f sha="$latest_main_sha" \
         > /dev/null
 fi
 

@@ -3394,7 +3394,7 @@ export class Service<RequestMeta = ExpressRequest>
       const json = {
         methods: Object.values(this.methodImpls).map((methodImpl) => ({
           method: methodImpl.method.name,
-          number: methodImpl.method.name,
+          number: methodImpl.method.number,
           request: methodImpl.method.requestSerializer.typeDescriptor.asJson(),
           response:
             methodImpl.method.responseSerializer.typeDescriptor.asJson(),
@@ -3473,6 +3473,13 @@ export class Service<RequestMeta = ExpressRequest>
           reqBodyJson = JSON.parse(reqBody);
         } catch (_e) {
           return makeBadRequestResponse("bad request: invalid JSON");
+        }
+        if (
+          typeof reqBodyJson !== "object" ||
+          reqBodyJson === null ||
+          Array.isArray(reqBodyJson)
+        ) {
+          return makeBadRequestResponse("bad request: invalid request format");
         }
         const methodField = (reqBodyJson as AnyRecord)["method"];
         if (methodField === undefined) {
