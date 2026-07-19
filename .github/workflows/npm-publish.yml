@@ -71,4 +71,4 @@ jobs:
           path: package
 
       - name: Publish
-        run: npm publish package/*.tgz --ignore-scripts --provenance --access public
+        run: npm publish ./package/*.tgz --ignore-scripts --provenance --access public
