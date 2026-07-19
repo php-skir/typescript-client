@@ -1,7 +1,10 @@
-[![npm](https://img.shields.io/npm/v/@php-skir/skir-client)](https://www.npmjs.com/package/@php-skir/skir-client)
-[![build](https://github.com/php-skir/typescript-client/workflows/Build/badge.svg)](https://github.com/php-skir/typescript-client/actions)
-
 # Skir TypeScript Client
+
+[![Tests](https://github.com/php-skir/typescript-client/actions/workflows/tests.yml/badge.svg)](https://github.com/php-skir/typescript-client/actions/workflows/tests.yml)
+[![Coverage](https://raw.githubusercontent.com/php-skir/typescript-client/badges/coverage.svg)](https://github.com/php-skir/typescript-client/actions/workflows/tests.yml)
+[![npm](https://img.shields.io/npm/v/@php-skir/skir-client?label=npm&logo=npm)](https://www.npmjs.com/package/@php-skir/skir-client)
+[![Node.js](https://img.shields.io/badge/Node.js-22%20%7C%2024-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![License](https://img.shields.io/github/license/php-skir/typescript-client)](LICENSE)
 
 Library imported from TypeScript code generated from skir files.
 

@@ -2,4 +2,6 @@
 dist
 node_modules
 .npm-cache
+/build/
+/coverage/
 tsconfig.tsbuildinfo
