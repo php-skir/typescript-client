@@ -1,6 +1,6 @@
 {
   "name": "@php-skir/skir-client",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "Laravel Skir TypeScript runtime client with optional CBOR transport support.",
   "homepage": "https://github.com/php-skir/typescript-client#readme",
   "bugs": {
